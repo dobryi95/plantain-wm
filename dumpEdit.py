@@ -16,6 +16,7 @@ else:
 
 
 def encode_money(amount: int):
+	amount = amount * 100
 	amount_straight = int.to_bytes(amount, 4, 'little')  # straight code (s)
 	amount_compl = int.to_bytes((1 << 32)-amount-1, 4, 'little')  # twos-complement code (c)
 	k = b'\x00\xff\x00\xff'  # kopeck(k) amount = 0 (scsc)
